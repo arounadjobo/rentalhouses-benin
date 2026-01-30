@@ -1,0 +1,74 @@
+<div class="container" id="nav-bar">
+  <nav class="navbar navbar-expand-lg">
+   <h4><a class="navbar-brand" [routerLink]="['/'+appRoutes.home]">LOCAIMMO</a></h4> 
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="second-list">
+          <div class="first-list">
+            <li class="nav-item1 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Acheter
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Maisons A Vendre</a></li>
+                <li><a class="dropdown-item" href="#">Appartements A Vendre</a></li>
+                <li><a class="dropdown-item" href="#">Magasins A Vendre</a></li>
+                <li><a class="dropdown-item" href="#">Boutiques A Vendre</a></li>
+                <li><a class="dropdown-item" href="#">Terrain A Vendre</a></li>
+              </ul>
+            </li>
+            <li class="nav-item2 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Louer
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="['/'+appRoutes.rentalhouse]">Maisons A Louer</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/'+appRoutes.rentalapartment]">Appartements A Louer</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/'+appRoutes.rentalstore]">Magasins A Louer</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/'+appRoutes.rentalshop]">Boutiques A Louer</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/'+appRoutes.liceland]">Terrain A Louer</a></li>
+              </ul>
+            </li>
+          </div>
+
+          <li class="nav-item3">
+            <a class="nav-link" aria-disabled="false">Service Immobilier</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+ 
+  </nav>
+</div>
+
+
+<!--
+<form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+<div>
+  <hr class="nav-divider" />
+</div>
+-->
