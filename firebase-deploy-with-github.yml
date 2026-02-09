@@ -1,0 +1,34 @@
+name: Build & Deploy to Firebase Hosting
+
+on :
+  push: 
+    branches: [main]
+jobs:
+  buil-deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read    
+      steps:
+        -name: checkout
+        uses:  actions/checkout@v4
+
+        -name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+        -name: Install deps
+        run: npm ci  
+
+        -name: Build Angular (prod)
+        run: npm build -- --configuration production
+
+        #Deploy using Github actions
+        -name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: `${{secrets.GITHUB_TOKEN}}`
+          firebaseServiceAccount: `${{secrets.FIREBASE-SERVICE ACCOUNT}}`
+          projectId: 'rentalhouses-benin'
+          channelId: live
