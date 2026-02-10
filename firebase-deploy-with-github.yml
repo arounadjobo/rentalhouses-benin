@@ -1,30 +1,22 @@
-name: Build & Deploy to Firebase Hosting
+name:  Deploy RentalHouses in Firebase 
 
 on :
   push: 
-    branches: [main]
+    branches: 
+      -main
 jobs:
-  buil-deploy:
-      permissions:
-        contents: read    
-      steps:
-        -name: checkout
-        uses:  actions/checkout@v4
-
-        -name: Use Node
-        uses: actions/setup-node@v20
+  firebase-deploy:
+    runs-on: ubuntu-latest
+       
+    steps:
+        -uses:  actions/checkout@main
+        -uses: actions/setup-node@main
         with:
-          node-version: 20
-          cache: npm
-
-        run: npm ci  
-
-        -name: Build Angular (prod)
-        run: npm build -- --configuration production
-
-        #Deploy using Github actions
-        -name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+          node-version: 20.x
+        run: npm install
+        run: npm run build  
+        with:
+         args: deploy --only hosting
         with:
           repoToken: `${{secrets.GITHUB_TOKEN}}`
           firebaseServiceAccount: `${{secrets.FIREBASE-SERVICE ACCOUNT}}`
