@@ -19,6 +19,6 @@ jobs:
          args: deploy --only hosting
         with:
           repoToken: `${{secrets.GITHUB_TOKEN}}`
-          firebaseServiceAccount: `${{secrets.FIREBASE-SERVICE ACCOUNT}}`
+          firebaseServiceAccount: `${{secrets.FIREBASE-SERVICE RENTALHOUSES}}`
           projectId: 'rentalhouses-benin'
          
