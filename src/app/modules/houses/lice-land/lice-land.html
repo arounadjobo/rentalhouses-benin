@@ -1,1 +1,5 @@
-<p>lice-land works!</p>
+<div class="container">
+  @for (rentalhouse of houses; track $index) {
+    <app-lice-land-display [house]="rentalhouse"></app-lice-land-display>
+  }
+</div>
