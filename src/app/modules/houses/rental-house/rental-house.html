@@ -1,11 +1,14 @@
+<div class="container">
 <div>
   <h5>Choose the house you want to rent</h5>
-  <h6>Here are the list and prices</h6>
-  <ul>
-    <li>GreenHouse : 125000FCFA</li>
-    <li>NevadaBeach : 25000FCFA</li>
-    <li>SalmionDeak : 5000FCFA</li>
-    <li>NoraGoreHome : 12000FCFA</li>
-    <li>DjemalahHouse : 55000FCFA</li>
-  </ul>
+  <div class="content">
+  @for (house of licehouses; track $index) {
+    <div>HouseType: <strong>{{ house.Title }}</strong></div>
+    <h6>Price: {{ house.Price }}</h6>
+    <div>AreName: {{ house.Area }}</div>
+    <div>NumberOfBedrooms: {{ house.Bedrooms }}</div>
+    <div><img [src]="house.ImagePath"alt=""></div>
+  }
+  </div>
+</div>
 </div>

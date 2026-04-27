@@ -1,5 +1,5 @@
 <div class="container">
-  @for (rentalhouse of houses; track $index) {
-    <app-lice-land-display [house]="rentalhouse"></app-lice-land-display>
+  @for (item of houses; track $index) {
+    <app-lice-land-display [house]="item"></app-lice-land-display>
   }
 </div>
