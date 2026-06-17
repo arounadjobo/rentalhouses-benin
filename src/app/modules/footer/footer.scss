@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  font-size: 20px;
+  background-color: #9da09c;
+  padding: 1rem 2rem;
+}
+
+.short-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 20px;
+  margin-left: 30px;
+  text-decoration: underline;
+}

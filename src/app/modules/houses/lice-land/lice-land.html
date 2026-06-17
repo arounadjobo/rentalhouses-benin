@@ -1,5 +1,11 @@
 <div class="container">
-  @for (item of houses; track $index) {
-    <app-lice-land-display [house]="item"></app-lice-land-display>
+  @if (isLoading()) {
+    <p>Loading data from API...</p>
+  } @else {
+    @for (item of houses(); track $index) {
+      <app-lice-land-display [house]="item"></app-lice-land-display>
+    }@empty {
+      <p>No data found!!!</p>
+    }
   }
 </div>

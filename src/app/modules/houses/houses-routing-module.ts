@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: AppRoutes.rentalapartment,
+        path: AppRoutes.buyHouse,
         component: RentalApart,
       },
     ],
@@ -30,7 +30,7 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: AppRoutes.rentalshop,
+        path: AppRoutes.payBills,
         component: RentalShop,
       },
     ],
@@ -39,7 +39,7 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: AppRoutes.rentalstore,
+        path: AppRoutes.manageTenants,
         component: RentalStore,
       },
     ],

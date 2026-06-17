@@ -1,4 +1,4 @@
 export const ApiEndpoint = {
 
-    getHouses: `house/Gethouses`,
+    getHouses: `house/GetAllhouses`,
 }

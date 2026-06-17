@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "logement/dist/logement",
+    "public": "dist/logement/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

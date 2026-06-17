@@ -14,17 +14,17 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => import('../../modules/houses/houses-module').then((m) => m.HousesModule),
   },
   {
-    path: AppRoutes.rentalapartment,
+    path: AppRoutes.manageTenants,
     component: RentalApart,
     loadChildren: () => import('../../modules/houses/houses-module').then((m) => m.HousesModule),
   },
    {
-    path: AppRoutes.rentalshop,
+    path: AppRoutes.payBills,
     component: RentalShop,
     loadChildren: () => import('../../modules/houses/houses-module').then((m) => m.HousesModule),
   },
    {
-    path: AppRoutes.rentalstore,
+    path: AppRoutes.buyHouse,
     component: RentalStore,
     loadChildren: () => import('../../modules/houses/houses-module').then((m) => m.HousesModule),
   },

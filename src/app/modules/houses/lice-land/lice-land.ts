@@ -1,5 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import {  AppServices, RentalHouseDisplay, RentalHouseForDisplay } from '../../../core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { AppServices, RentalHouseDisplay, RentalHouseForDisplay } from '../../../core';
 import { LiceLandDisplay } from '../../../shared';
 
 @Component({
@@ -10,12 +10,12 @@ import { LiceLandDisplay } from '../../../shared';
 })
 export class LiceLand implements OnInit {
   private readonly service = inject(AppServices);
-  
-  houses: RentalHouseDisplay[] = [];
+
+  houses = signal<RentalHouseDisplay[]>([]);
+  isLoading = signal<boolean>(true);
 
   ngOnInit(): void {
     this.getHouses();
-    console.log(this.houses);
   }
 
   private getHouses() {
@@ -27,10 +27,12 @@ export class LiceLand implements OnInit {
 
   OnGetHousesError(error: any): void {
     console.error(error);
+    this.isLoading.set(false);
   }
 
   OnGetHouses(response: RentalHouseForDisplay[]): void {
     const values = response.map((x) => new RentalHouseDisplay(x));
-    this.houses.push(...values);
+    this.houses.set(values);
+    this.isLoading.set(false);
   }
 }
