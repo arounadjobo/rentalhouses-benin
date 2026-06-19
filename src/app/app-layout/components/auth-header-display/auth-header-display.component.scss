@@ -5,40 +5,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #fffbfe;
-  width: 100%;
-  top: 0;
-  z-index: 1;
 }
 
 .auth-header-actions-section {
   display: flex;
   justify-content: flex-end;
-}
-
-.help-container {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #dddddd;
-  font-size: 25px;
-  color: #000;
-  line-height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.help-container i {
-  font-size: 13px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #1abbfe;
-  color: #fff;
-  line-height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .header-action {
@@ -47,6 +18,7 @@
   margin-top: 5px;
   padding: 3px 8px;
   height: 35px;
+  cursor: pointer;
 }
 
 .header-action:hover {
@@ -54,26 +26,5 @@
   background-color: #cccccc;
 }
 
-.profile-image-container {
-  display: flex;
-  flex-wrap:wrap;
-  margin-right: 20px;
-  height: 0;
-}
 
-.caret-drop-down {
-  display: flex;
-  align-items: center;
-  margin-left: 3px;
-}
 
-.profile-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ccc;
-  font-size: 25px;
-  color: #000;
-  text-align: center;
-  line-height: 40px;
-}

@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrl: './auth-header-display.component.scss'
 })
 export class AuthHeaderDisplayComponent implements OnInit {
-  @Input() headerActionText: string = "Team";
+  @Input() headerActionText: string = "Menu";
   @Input() showActionHeader: boolean = true;
 
   @Output() onActionBtnClick: EventEmitter<any> = new EventEmitter();

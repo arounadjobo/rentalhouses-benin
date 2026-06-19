@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuItem } from '../../core/api-models';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu-modal',
@@ -11,8 +12,10 @@ import { MenuItem } from '../../core/api-models';
 })
 export class MenuModal implements OnInit{
 
+  
+  public readonly modalRef = inject(NgbActiveModal);
+  
 // Session parameters
-  isOpen: boolean = true;
   tableName: string = 'Table #04 (Terrasse)';
   username: string = 'christian_k_pk';
 
@@ -79,7 +82,7 @@ export class MenuModal implements OnInit{
   
   // Dismiss modal view
   closeModal(): void {
-    this.isOpen = false;
+    this.modalRef.close();
   }
 
   
