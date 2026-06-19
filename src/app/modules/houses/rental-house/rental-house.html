@@ -3,11 +3,6 @@
   <h5>Choose the house you want to rent</h5>
   <div class="content">
   @for (house of licehouses; track $index) {
-    <div>HouseType: <strong>{{ house.Title }}</strong></div>
-    <h6>Price: {{ house.Price }}</h6>
-    <div>AreName: {{ house.Area }}</div>
-    <div>NumberOfBedrooms: {{ house.Bedrooms }}</div>
-    <div><img [src]="house.ImagePath"alt=""></div>
   }
   </div>
 </div>

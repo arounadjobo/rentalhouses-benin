@@ -1,0 +1,15 @@
+  <section class="auth-header-container">
+    <section>
+      <ng-content></ng-content>
+    </section>
+    <section class="auth-header-actions-section">
+      @if (showActionHeader) {
+        <div class="header-action clickable m-r-10" (click)="headerActionClick()">
+          <span class="p-r-2"><i class="fa-solid fa-plus"></i></span>
+          <span>{{ headerActionText }}</span>
+        </div>
+      }
+    </section>
+  </section>
+
+

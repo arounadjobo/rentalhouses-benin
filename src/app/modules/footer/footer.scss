@@ -1,8 +1,11 @@
 .footer {
   display: flex;
+  justify-content: space-around;
   font-size: 20px;
-  background-color: #9da09c;
+  background-color: #555553;
   padding: 1rem 2rem;
+  padding-bottom: 8rem;
+  margin-bottom: 10px;
 }
 
 .short-links {
@@ -11,5 +14,10 @@
   gap: 2rem;
   font-size: 20px;
   margin-left: 30px;
-  text-decoration: underline;
+  color: #f0eeee;
+}
+
+h5{
+  color: #f0eeee;
+  font-size: 25px;
 }

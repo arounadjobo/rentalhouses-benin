@@ -1,4 +1,4 @@
-export interface LiceLandForDisplay {
+export class LiceLandForDisplay {
   Title: string;
   Price: number;
   Area: string;

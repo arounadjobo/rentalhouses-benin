@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-container">
+    
+    <!-- Header -->
+    <div class="modal-header">
+      <h3>🔔 CREATE NEW ORDER RECORD</h3>
+      <button class="close-x" (click)="closeModal()">[X]</button>
+    </div>
+
+    <!-- Body Content -->
+    <div class="modal-body">
+      
+      <!-- Section 1: Server Info -->
+      <div class="form-section">
+        <h4>[ Zack 1. SERVER & STATION METRICS ]</h4>
+        <div class="metrics-row">
+          <label>Table ID: <strong>{{ tableName }}</strong></label>
+          <label>Server Username: <code>{{ username }}</code></label>
+        </div>
+      </div>
+
+      <!-- Loops for Section 2 (Dishes), Section 3 (Drinks), Section 4 (Desserts) -->
+      <ng-container *ngFor="let group of [
+        { title: '🥘 2. LOCAL DISHES SELECTION (0% VAT)', type: 'LOCAL_DISH' },
+        { title: '🍹 3. SOBEBRA DRINKS SELECTION (18% VAT)', type: 'SOBEBRA_DRINK' },
+        { title: '🍧 4. LOCAL DESSERTS SELECTION (18% VAT)', type: 'DESSERT' }
+      ]">
+        <div class="form-section">
+          <h4>[{{ group.title }}]</h4>
+          <div class="item-row" *ngFor="let item of getItemsByCategory(group.type)">
+            <div class="item-meta">
+              <input type="checkbox" [(ngModel)]="item.selected" (change)="onItemSelect(item)" [id]="item.id">
+              <label [for]="item.id">{{ item.name }}</label>
+            </div>
+            <span class="item-price">{{ item.price | number }} F</span>
+            
+            <!-- Quantity Control Steppers -->
+            <div class="stepper-controls">
+              <button [disabled]="!item.selected" (click)="adjustQuantity(item, -1)">-</button>
+              <span class="qty-display">{{ item.quantity }}</span>
+              <button [disabled]="!item.selected" (click)="adjustQuantity(item, 1)">+</button>
+            </div>
+            <span class="item-subtotal">{{ (item.price * item.quantity) | number }} F</span>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Section 5: Financial Metrics -->
+      <div class="form-section financial-summary">
+        <h4>[📊 5. COMPLIANT TRANSACTION METRICS SUMMARY]</h4>
+        <div class="summary-row">
+          <span>Gross Total: <strong>{{ grossTotal | number }} FCFA</strong></span>
+          <span>Calculated 18% VAT: <strong>{{ calculatedVat | number }} FCFA</strong></span>
+          <span>Net Order Value: <strong class="net-value">{{ grossTotal | number }} FCFA</strong></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons Layer -->
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="closeModal()">❌ CANCEL DISMISS</button>
+      <button class="btn-submit" (click)="submitOrder()">🟢 PUSH KITCHEN DISPATCH & GENERATE e-MeCEF</button>
+    </div>
+
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e8e9e5;
+  margin-top: 10px;
+  padding: 10px;
+}
+.header h4 {
+  font-weight: bold;
+  color: #7a3c02;
+}
+
+.profile {
+  display: flex;
+  gap: 2rem;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 900;
+  font-style: italic;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 strong {
+  color: #ff9204;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.menu:hover {
+  background-color: #88480b;
+}
+
+.menu {
+  background-color: #7a3c02;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.order a {
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.order {
+  background-color: #1e1f1e;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.order:hover {
+  background-color: #282928;
+}
+
+.tracking a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  color: #0e0d0d;
+}
+
+.tracking {
+  background-color: #ee8b09;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tracking:hover {
+  background-color: #bba005;
+}
+
+.cash a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: #1f6409;
+}
+
+.cash {
+  background-color: #a5a4a2;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cash:hover {
+  background-color: #8b8b89;
+}

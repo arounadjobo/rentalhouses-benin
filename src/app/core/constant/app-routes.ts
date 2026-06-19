@@ -6,5 +6,9 @@ export const AppRoutes = {
   payBills: `pay-bills`,
   liceland: `lice-lands`,
   restaurant: `restaurant`,
-  pharmacy: `pharma-cy`
+  pharmacy: `pharma-cy`,
+  menu:`menu-items`,
+  payment:`cash-flow`,
+  inventory: `tracking-items`,
+  order: `place-order`
 };

@@ -1,0 +1,160 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: monospace;
+}
+
+.modal-container {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 800px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.close-x {
+  background: none;
+  border: none;
+  color: #ce0606;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.form-section {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.form-section h4 {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: #555555;
+  background: #eeeeee;
+  padding: 4px;
+}
+
+.metrics-row {
+  display: flex;
+  gap: 40px;
+  font-size: 14px;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eeeeee;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  gap: 10px;
+}
+
+.stepper-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-controls button {
+  width: 28px;
+  height: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.qty-display {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.item-price,
+.item-subtotal {
+  width: 15%;
+  text-align: right;
+}
+
+.financial-summary {
+  background-color: #fffdec;
+  border-color: #e6db55;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.net-value {
+  color: #27ae60;
+  font-size: 16px;
+}
+
+.modal-footer {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  background: #fafafa;
+  border-top: 1px solid #eeeeee;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #f4f4f5;
+  border: 1px solid #ccc;
+}
+
+.btn-submit {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+}
+
+.btn-submit:hover {
+  background-color: #219653;
+}

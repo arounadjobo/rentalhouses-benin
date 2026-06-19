@@ -5,3 +5,7 @@ export * from './houses/rental-store/rental-store';
 export * from './houses/lice-land/lice-land';
 export * from './restaurant/main-resto/main-resto';
 export * from './pharmacy/main-pharma/main-pharma';
+export * from './restaurant/cash-draw/cash-draw';
+export * from './restaurant/inventory/inventory';
+export * from './restaurant/menu/menu';
+export * from './restaurant/order/order';
