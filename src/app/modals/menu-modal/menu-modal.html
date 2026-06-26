@@ -1,11 +1,12 @@
 <div class="container">
-    <div class="modal-backdrop">
+  
+  <div class="modal-backdrop">
   <div class="modal-container">
     
     <!-- Header -->
     <div class="modal-header">
       <h3>🔔 CREATE NEW ORDER RECORD</h3>
-      <button class="close-x" (click)="closeModal()">[X]</button>
+      <button class="close-x" (click)="modalRef.close()">[X]</button>
     </div>
 
     <!-- Body Content -->
@@ -13,23 +14,24 @@
       
       <!-- Section 1: Server Info -->
       <div class="form-section">
-        <h4>[ Zack 1. SERVER & STATION METRICS ]</h4>
+        <h4>[ Cafe Restaurant Nasuba Food]</h4>
         <div class="metrics-row">
-          <label>Table ID: <strong>{{ tableName }}</strong></label>
-          <label>Server Username: <code>{{ username }}</code></label>
+          <label>Table:</label>
+          <input type="number" placeholder="Numero de Table">
+          <label>Serveur:</label>
+          <input type="text" placeholder="Nom du server">
         </div>
       </div>
 
       <!-- Loops for Section 2 (Dishes), Section 3 (Drinks), Section 4 (Desserts) -->
-      <ng-container *ngFor="let group of [
-        { title: '🥘 2. LOCAL DISHES SELECTION (0% VAT)', type: 'LOCAL_DISH' },
-        { title: '🍹 3. SOBEBRA DRINKS SELECTION (18% VAT)', type: 'SOBEBRA_DRINK' },
-        { title: '🍧 4. LOCAL DESSERTS SELECTION (18% VAT)', type: 'DESSERT' }
-      ]">
+      <ng-container >
+       @for (group of groupDishes ; track  $index){
         <div class="form-section">
           <h4>[{{ group.title }}]</h4>
-          <div class="item-row" *ngFor="let item of getItemsByCategory(group.type)">
-            <div class="item-meta">
+
+          @for (item of getItemsByCategory(group.type); track  $index) {
+          <div class="item-row">
+              <div class="item-meta">
               <input type="checkbox" [(ngModel)]="item.selected" (change)="onItemSelect(item)" [id]="item.id">
               <label [for]="item.id">{{ item.name }}</label>
             </div>
@@ -41,9 +43,18 @@
               <span class="qty-display">{{ item.quantity }}</span>
               <button [disabled]="!item.selected" (click)="adjustQuantity(item, 1)">+</button>
             </div>
+            <div>
             <span class="item-subtotal">{{ (item.price * item.quantity) | number }} F</span>
+            </div>
           </div>
+           } @empty {
+            <p>No items found.</p>
+           }
         </div>
+         }
+         @empty {
+            <p>No items found.</p>
+           }
       </ng-container>
 
       <!-- Section 5: Financial Metrics -->
@@ -60,11 +71,12 @@
 
     <!-- Action Buttons Layer -->
     <div class="modal-footer">
-      <button class="btn-cancel" (click)="closeModal()"> CANCEL DISMISS</button>
+      <button class="btn-cancel" (click)="modalRef.close()"> CANCEL DISMISS</button>
       <button class="btn-submit" (click)="submitOrder()"> PUSH KITCHEN DISPATCH & GENERATE e-MeCEF</button>
     </div>
 
   </div>
 </div>
+
 
 </div>

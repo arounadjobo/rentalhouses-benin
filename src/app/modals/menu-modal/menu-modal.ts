@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MenuItem } from '../../core/api-models';
+import { FormsModule} from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { MenuDishesForCreate, MenuItemsForCreate } from '../../core/api-models';
+
 
 @Component({
   selector: 'app-menu-modal',
@@ -12,15 +13,20 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class MenuModal implements OnInit{
 
+  @Output() onCloseClick = new EventEmitter();
   
-  public readonly modalRef = inject(NgbActiveModal);
-  
-// Session parameters
-  tableName: string = 'Table #04 (Terrasse)';
-  username: string = 'christian_k_pk';
+ 
+public readonly modalRef = inject(NgbActiveModal);
+  //isOpen: boolean = true;
+  tableName = 'Table numero04 (Jardin)';
+  username  = 'christian KPADONOU';
+  warningMessage = 'Commande envoyée en cuisine ! Payload e-MeCEF synchronisé.';
+
+
+
 
  // Available Menu Items Matrix
-  menuItems: MenuItem[] = [
+  menuItems: MenuItemsForCreate[] = [
     { id: 'SKU-ATA-01', name: 'Atassi Complet (Poisson)', price: 2500, category: 'LOCAL_DISH', isVatExempt: true, selected: false, quantity: 0 },
     { id: 'SKU-IGN-02', name: 'Igname Pilée (Mouton)', price: 3000, category: 'LOCAL_DISH', isVatExempt: true, selected: false, quantity: 0 },
     { id: 'SKU-AMI-03', name: 'Pâte Rouge (Amiwo Poulet)', price: 3500, category: 'LOCAL_DISH', isVatExempt: true, selected: false, quantity: 0 },
@@ -33,11 +39,17 @@ export class MenuModal implements OnInit{
     { id: 'SKU-BIS-09', name: 'Verre de Jus de Bissap', price: 500, category: 'DESSERT', isVatExempt: false, selected: false, quantity: 0 }
   ];
 
+   groupDishes: MenuDishesForCreate[] = [
+    { title: '🥘 2. LOCAL DISHES SELECTION (0% VAT)', type: 'LOCAL_DISH' },
+    { title: '🍹 3. SOBEBRA DRINKS SELECTION (18% VAT)', type: 'SOBEBRA_DRINK' },
+    { title: '🍧 4. LOCAL DESSERTS SELECTION (18% VAT)', type: 'DESSERT' }
+  ]
+
   ngOnInit(): void { }
 
   
   // Triggers when a checkbox state toggles
-  onItemSelect(item: MenuItem): void {
+  onItemSelect(item: MenuItemsForCreate): void {
     if (item.selected) {
       item.quantity = 1; // State-lock boundary baseline
     } else {
@@ -47,7 +59,7 @@ export class MenuModal implements OnInit{
 
   
    // Handle quantity changes
-  adjustQuantity(item: MenuItem, change: number): void {
+  adjustQuantity(item: MenuItemsForCreate, change: number): void {
     if (!item.selected) return;
     const nextQty = item.quantity + change;
     if (nextQty >= 1) {
@@ -60,7 +72,7 @@ export class MenuModal implements OnInit{
 
   
   // Filter items by category grouping
-  getItemsByCategory(category: string): MenuItem[] {
+  getItemsByCategory(category: string): MenuItemsForCreate[] {
     return this.menuItems.filter(item => item.category === category);
   }
 
@@ -82,7 +94,7 @@ export class MenuModal implements OnInit{
   
   // Dismiss modal view
   closeModal(): void {
-    this.modalRef.close();
+    this.onCloseClick.emit();
   }
 
   
@@ -91,13 +103,14 @@ export class MenuModal implements OnInit{
     const activeBasket = this.menuItems.filter(item => item.quantity > 0);
     
     if (activeBasket.length === 0) {
-      alert('Veuillez sélectionner au moins un article.');
+      alert(this.warningMessage);
       return;
     }
+    
 
     const payload = {
       order_metadata: {
-        table_identifier: this.tableName,
+        table_number: this.tableName,
         waiter_username: this.username,
         timestamp: new Date().toISOString()
       },
@@ -114,6 +127,7 @@ export class MenuModal implements OnInit{
         final_net_payable_fcfa: this.grossTotal
       }
     };
+
 
      console.log('e-MeCEF Outbound Payload Generated:', JSON.stringify(payload, null, 2));
     alert('Commande envoyée en cuisine ! Payload e-MeCEF synchronisé.');

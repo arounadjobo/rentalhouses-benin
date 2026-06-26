@@ -1,4 +1,4 @@
-export interface MenuForDisplay{
+export interface MenuItemsForCreate{
   id: string;
   name: string;
   price: number;
@@ -6,7 +6,4 @@ export interface MenuForDisplay{
   isVatExempt: boolean;
   selected: boolean;
   quantity: number;
-  grossTotal: number;
-  calculatedVAT: number;
-  netOrderValue: number;
 }
